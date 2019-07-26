@@ -12,7 +12,6 @@ class home extends Component {
     axios
       .get("/posts")
       .then(res => {
-        console.log(res.data);
         this.setState({
           posts: res.data
         });
@@ -21,7 +20,7 @@ class home extends Component {
   }
   render() {
     let recentPostsMarkup = this.state.posts ? (
-      this.state.posts.map(post => <Post post={post} />)
+      this.state.posts.map(post => <Post post={post} key={post.postId} />)
     ) : (
       <p>Loading...</p>
     );
