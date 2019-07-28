@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const styles = {
   form: {
@@ -38,7 +38,7 @@ const styles = {
   progress: {
     position: "absolute"
   }
-}
+};
 
 class login extends Component {
   constructor() {
@@ -62,7 +62,7 @@ class login extends Component {
     axios
       .post("/login", userData)
       .then(res => {
-        localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
         this.setState({
           loading: false
         });
@@ -137,7 +137,7 @@ class login extends Component {
             </Button>
             <br />
             <small>
-              <Link to="/signup">Don't have an acoount? sign up here</Link>
+              Don't have an acoount? sign up<Link to="/signup"> here</Link>
             </small>
           </form>
         </Grid>

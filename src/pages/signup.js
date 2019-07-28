@@ -37,7 +37,7 @@ const styles = {
   },
   progress: {
     position: "absolute"
-  }
+  },
 };
 class signup extends Component {
   constructor() {
@@ -65,7 +65,7 @@ class signup extends Component {
     axios
       .post("/signup", newUserData)
       .then(res => {
-        localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
         this.setState({
           loading: false
         });
@@ -164,7 +164,7 @@ class signup extends Component {
             </Button>
             <br />
             <small>
-              <Link to="/login">Already have an acoount? login here</Link>
+              Already have an acoount ? login<Link to="/login"> here</Link>
             </small>
           </form>
         </Grid>
