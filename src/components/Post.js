@@ -18,7 +18,7 @@ const styles = {
   image: {
     minWidth: 200,
     minHeight: 100,
-    objectFit: 'contain'
+    objectFit: 'cover'
   },
   content: {
     padding: 25,
