@@ -33,10 +33,10 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    position: 'relative'
+    position: "relative"
   },
   progress: {
-    position: 'absolute',
+    position: "absolute"
   }
 }
 
