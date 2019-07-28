@@ -15,6 +15,7 @@ class home extends Component {
         this.setState({
           posts: res.data
         });
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }

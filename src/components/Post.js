@@ -5,10 +5,10 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 // MUI Stuff
+import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
@@ -16,7 +16,8 @@ const styles = {
     marginBottom: 20
   },
   image: {
-    minWidth: 200
+    minWidth: 200,
+    minHeight: 160
   },
   content: {
     padding: 25,
@@ -42,7 +43,7 @@ class Post extends Component {
     return (
       <Card className={classes.card}>
         <CardMedia
-          image="https://firebasestorage.googleapis.com/v0/b/social-app-d3eeb.appspot.com/o/no-img.png?alt=media"
+          image={userImage}
           title="Profile Image"
           className={classes.image}
         />
