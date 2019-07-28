@@ -17,11 +17,11 @@ const styles = {
   },
   image: {
     minWidth: 200,
-    minHeight: 160
+    minHeight: 100,
+    objectFit: 'contain'
   },
   content: {
     padding: 25,
-    objectFit: 'cover'
   }
 };
 
@@ -49,7 +49,7 @@ class Post extends Component {
         />
         <CardContent className={classes.content}>
           <Typography
-            variant="h5"
+            variant="h6"
             component={Link}
             to={`/users/${username}`}
             color="primary"
