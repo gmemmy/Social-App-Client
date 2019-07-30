@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import propTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
+import withStyles from "@material-ui/core/styles/withStyles";
+import EditProfileDetails from "./EditProfileDetails";
 
 // MUI Stuff
 import Typography from "@material-ui/core/Typography";
@@ -157,6 +158,8 @@ class Profile extends Component {
                 <KeyboardReturn color="primary" />
               </IconButton>
             </Tooltip>
+           
+            <EditProfileDetails />
           </div>
         </Paper>
       ) : (
