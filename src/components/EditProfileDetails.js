@@ -94,8 +94,6 @@ class EditProfileDetails extends Component {
                 name="bio"
                 type="text"
                 label="Bio"
-                multiline
-                rows="3"
                 placeholder="A short bio about yourself"
                 className={classes.textField}
                 value={this.state.bio}
