@@ -9,19 +9,23 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import MuiLink from "@material-ui/core/Link";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
 // Redux Stuff
 import { connect } from "react-redux";
+import { uploadImage, logoutUser } from "../redux/actions/userActions";
 
 // Icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
+import EditIcon from "@material-ui/icons/Edit";
 
 const styles = theme => ({
   paper: {
     width: 300,
-    padding: 20,
+    padding: 20
   },
   profile: {
     "& .image-wrapper": {
@@ -68,6 +72,17 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
+  handleImageChange = event => {
+    const image = event.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image, image.name);
+    this.props.uploadImage(formData);
+  };
+
+  handleEditPicture = () => {
+    const fileInput = document.getElementById("imageInput");
+    fileInput.click();
+  };
   render() {
     const {
       classes,
@@ -84,6 +99,17 @@ class Profile extends Component {
           <div className={classes.profile}>
             <div className="image-wrapper">
               <img src={imageUrl} alt="Profile" className="profile-image" />
+              <input
+                type="file"
+                id="imageInput"
+                hidden="hidden"
+                onChange={this.handleImageChange}
+              />
+              <Tooltip title="Edit profile picture" placement="top-start">
+                <IconButton onClick={this.handleEditPicture} className="button">
+                  <EditIcon color="primary" />
+                </IconButton>
+              </Tooltip>
             </div>
             <hr />
             <div className="profile-details">
@@ -147,18 +173,27 @@ class Profile extends Component {
     ) : (
       <p>loading...</p>
     );
-
     return profileMarkup;
   }
 }
 
 Profile.propTypes = {
   user: propTypes.object.isRequired,
-  classes: propTypes.object.isRequired
+  classes: propTypes.object.isRequired,
+  logoutUser: propTypes.func.isRequired,
+  uploadImage: propTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Profile));
+const mapActionsToProps = {
+  uploadImage,
+  logoutUser
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(Profile));
