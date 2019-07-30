@@ -10,8 +10,8 @@ import axios from "axios";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { SET_AUTHENTICATED } from './redux/types';
-import { logoutUser, getUserData } from './redux/actions/userActions';
+import { SET_AUTHENTICATED } from "./redux/types";
+import { logoutUser, getUserData } from "./redux/actions/userActions";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -29,11 +29,11 @@ if (token) {
   const decodedToken = jwtDecode(token);
   console.log(decodedToken);
   if (decodedToken.exp * 1000 < Date.now()) {
-    store.dispatch(logoutUser())
-    window.href.login = '/login';
+    store.dispatch(logoutUser());
+    window.href.login = "/login";
   } else {
     store.dispatch({ type: SET_AUTHENTICATED });
-    axios.defaults.headers.common['Authoriazation'] = token;
+    axios.defaults.headers.common["Authoriazation"] = token;
     store.dispatch(getUserData());
   }
 }
@@ -43,24 +43,16 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Provider store={store}>
-            <Router>
-              <Navbar />
-              <div className="container">
-                <Switch>
-                  <Route exact path="/" component={home} />
-                  <AuthRoute
-                    exact
-                    path="/login"
-                    component={login}
-                  />
-                  <AuthRoute
-                    exact
-                    path="/signup"
-                    component={signup}
-                  />
-                </Switch>
-              </div>
-            </Router>
+          <Router>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={home} />
+                <AuthRoute exact path="/login" component={login} />
+                <AuthRoute exact path="/signup" component={signup} />
+              </Switch>
+            </div>
+          </Router>
         </Provider>
       </MuiThemeProvider>
     );

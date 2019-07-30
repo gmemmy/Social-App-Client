@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom/";
 import propTypes from "prop-types";
 import logo from "../images/logo.png";
 
 // MUI Stuff
+import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -12,8 +12,8 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 // Redux Stuff
-import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/userActions';
+import { connect } from "react-redux";
+import { loginUser } from "../redux/actions/userActions";
 
 const styles = {
   form: {
@@ -74,7 +74,10 @@ class login extends Component {
     });
   };
   render() {
-    const { classes, UI: { loading } } = this.props;
+    const {
+      classes,
+      UI: { loading }
+    } = this.props;
     const { errors } = this.state;
 
     return (
@@ -133,7 +136,7 @@ class login extends Component {
             </small>
           </form>
         </Grid>
-        <Grid item sm /> 
+        <Grid item sm />
       </Grid>
     );
   }
@@ -146,13 +149,16 @@ login.propTypes = {
   UI: propTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.user,
   UI: state.UI
 });
 
 const mapActionsToProps = {
   loginUser
-}
+};
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(login));
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(login));
