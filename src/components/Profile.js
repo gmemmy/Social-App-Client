@@ -46,7 +46,9 @@ const styles = theme => ({
     },
     "& .profile-details": {
       textAlign: "center",
+      verticalAlign: "middle",
       "& span, svg": {
+        textAlign: "center",
         verticalAlign: "midddle"
       },
       "& a": {
@@ -126,13 +128,14 @@ class Profile extends Component {
               <hr />
               {location && (
                 <Fragment>
-                  <LocationOn color="primary" /> <span>{location}</span>
+                  <LocationOn color="primary" fontSize="small" />{" "}
+                  <span>{location}</span>
                   <hr />
                 </Fragment>
               )}
               {website && (
                 <Fragment>
-                  <LinkIcon color="primary" />
+                  <LinkIcon color="primary" fontSize="small" />
                   <a href={website} target="_" rel="noopener noreferrer ">
                     {" "}
                     {website}
@@ -140,7 +143,7 @@ class Profile extends Component {
                   <hr />
                 </Fragment>
               )}
-              <CalendarToday color="primary" />{" "}
+              <CalendarToday color="primary" fontSize="small" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
           </div>
