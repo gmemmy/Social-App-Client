@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import withStyles from "@material-ui/core/styles/withStyles";
 import EditProfileDetails from "./EditProfileDetails";
+import CustomButton from "../util/customButton";
 
 // MUI Stuff
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import MuiLink from "@material-ui/core/Link";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
 
 // Redux Stuff
 import { connect } from "react-redux";
@@ -114,11 +113,9 @@ class Profile extends Component {
                 hidden="hidden"
                 onChange={this.handleImageChange}
               />
-              <Tooltip title="Edit profile picture" placement="top-start">
-                <IconButton onClick={this.handleEditPicture} className="button">
-                  <EditIcon color="primary" />
-                </IconButton>
-              </Tooltip>
+              <CustomButton tip="Edit profile picture" onClick={this.handleEditPicture} btnClassName="button">
+                <EditIcon color="primary" />
+              </CustomButton>
             </div>
             <hr />
             <div className="profile-details">
@@ -153,11 +150,9 @@ class Profile extends Component {
               <CalendarToday color="primary" fontSize="small" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
-            <Tooltip title="Logout" placement="top-start">
-              <IconButton onClick={this.handleLogout}>
-                <KeyboardReturn color="primary" />
-              </IconButton>
-            </Tooltip>
+            <CustomButton tip="Logout" onClick={this.handleLogout}>
+              <KeyboardReturn color="primary" />
+            </CustomButton>
            
             <EditProfileDetails />
           </div>
