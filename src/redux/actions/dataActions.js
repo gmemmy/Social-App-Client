@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  SET_POST,
   SET_POSTS,
   LOADING_DATA,
   LIKE_POST,
@@ -8,7 +9,8 @@ import {
   LOADING_UI,
   ADD_POST,
   SET_ERRORS,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  STOP_LOADING_UI
 } from "../types";
 
 // Get All Posts
@@ -25,10 +27,26 @@ export const getPosts = () => dispatch => {
     .catch(err => {
       dispatch({
         type: SET_POSTS,
-        payload: {}
+        payload: []
       });
     });
 };
+
+// Get a single post
+export const singlePost = (postId) =>  dispatch => {
+  dispatch({ type: LOADING_UI })
+  axios.get(`/post/${postId}`)
+  .then(res => {
+    dispatch({ 
+      type: SET_POST,
+      payload: res.data
+    });
+    dispatch({ type: STOP_LOADING_UI })
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
 
 // Create a new post
 export const addPost = newPost => dispatch => {

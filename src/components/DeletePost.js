@@ -52,7 +52,8 @@ class DeletePost extends Component {
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          fullWidth="sm"
+          fullWidth
+          maxWidth="sm"
         >
           <DialogTitle>
             Are you sure you want to delete this post?
