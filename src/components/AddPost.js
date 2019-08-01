@@ -5,7 +5,7 @@ import CustomButton from "../util/customButton";
 
 // Redux Stuff
 import { connect } from "react-redux";
-import { addPost } from "../redux/actions/dataActions";
+import { addPost, clearErrors } from "../redux/actions/dataActions";
 
 // MUI Stuff
 import Button from "@material-ui/core/Button";
@@ -28,14 +28,16 @@ const styles = {
   },
   submitButton: {
     position: "relative",
-    float: "right"
+    float: "right",
+    marginTop: 10
   },
   progressSpinner: {
     position: "absolute"
   },
   closeButton: {
     position: "absolute",
-    left: "90%"
+    top: "6%",
+    left: "91%"
   }
 };
 
@@ -52,8 +54,11 @@ class AddPost extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ body: "" });
-      this.handleClose();
+      this.setState({
+        body: "",
+        open: false,
+        errors: {}
+      });
     }
   }
   handleOpen = () => {
@@ -62,6 +67,7 @@ class AddPost extends Component {
     });
   };
   handleClose = () => {
+    this.props.clearErrors();
     this.setState({
       open: false,
       errors: {}
@@ -101,7 +107,7 @@ class AddPost extends Component {
           >
             <CloseIcon />
           </CustomButton>
-          <DialogTitle>Create a new Post</DialogTitle>
+          <DialogTitle>Create a new post</DialogTitle>
           <DialogContent>
             <form onSubmit={this.handleSubmit}>
               <TextField
@@ -140,6 +146,7 @@ class AddPost extends Component {
 
 AddPost.propTypes = {
   addPost: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   UI: PropTypes.object.isRequired
 };
 
@@ -148,7 +155,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  addPost
+  addPost,
+  clearErrors
 };
 
 export default connect(
