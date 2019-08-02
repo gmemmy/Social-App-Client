@@ -88,7 +88,7 @@ class Post extends Component {
           <CustomButton tip="comments">
             <ChatIcon color="primary" />
           </CustomButton>
-          <span>
+          <span> 
             {commentCount === 1
               ? `${commentCount} comment`
               : `${commentCount} comments`}{" "}

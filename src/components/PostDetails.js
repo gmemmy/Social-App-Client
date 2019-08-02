@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CustomButton from "../util/customButton";
 import dayjs from "dayjs";
+import LikeButton from "../components/LikeButton";
 
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 // Icons
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
+import ChatIcon from "@material-ui/icons/Chat";
 
 // Redux Stuff
 import { connect } from "react-redux";
@@ -33,11 +34,11 @@ const styles = {
     objectFit: "cover"
   },
   dialogContent: {
-    padding: 20,
+    padding: 20
   },
   expandButton: {
-    position: 'absolute',
-    left: '90%'
+    position: "absolute",
+    left: "90%"
   },
   closeButton: {
     position: "absolute",
@@ -45,7 +46,7 @@ const styles = {
     left: "91%"
   },
   spinnerDiv: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 50,
     marginBottom: 50
   }
@@ -86,7 +87,7 @@ export class PostDetails extends Component {
         <CircularProgress size={100} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={16}>
+      <Grid container spacing={10}>
         <Grid item sm={5}>
           <img src={userImage} alt="Profile" className={classes.userImage} />
         </Grid>
@@ -105,6 +106,18 @@ export class PostDetails extends Component {
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant="body1">{body}</Typography>
+          <LikeButton postId={postId} />
+          <span>
+            {likeCount === 1 ? `${likeCount} like` : `${likeCount} likes`}{" "}
+          </span>
+          <CustomButton tip="comments">
+            <ChatIcon color="primary" />
+          </CustomButton>
+          <span>
+            {commentCount === 1
+              ? `${commentCount} comment`
+              : `${commentCount} comments`}{" "}
+          </span>
         </Grid>
       </Grid>
     );
@@ -130,7 +143,6 @@ export class PostDetails extends Component {
           >
             <CloseIcon />
           </CustomButton>
-          <DialogTitle />
           <DialogContent className={classes.dialogContent}>
             {dialogMarkup}
           </DialogContent>
