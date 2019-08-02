@@ -2,9 +2,9 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CustomButton from "../util/customButton";
+import CustomButton from "../../util/customButton";
 import dayjs from "dayjs";
-import LikeButton from "../components/LikeButton";
+import LikeButton from "./LikeButton";
 
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
@@ -20,7 +20,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 // Redux Stuff
 import { connect } from "react-redux";
-import { singlePost } from "../redux/actions/dataActions";
+import { singlePost } from "../../redux/actions/dataActions";
 
 const styles = {
   invisibleSeparator: {

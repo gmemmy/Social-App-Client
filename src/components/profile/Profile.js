@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import withStyles from "@material-ui/core/styles/withStyles";
 import EditProfileDetails from "./EditProfileDetails";
-import CustomButton from "../util/customButton";
+import CustomButton from "../../util/customButton";
 
 // MUI Stuff
 import Typography from "@material-ui/core/Typography";
@@ -14,7 +14,7 @@ import MuiLink from "@material-ui/core/Link";
 
 // Redux Stuff
 import { connect } from "react-redux";
-import { uploadImage, logoutUser } from "../redux/actions/userActions";
+import { uploadImage, logoutUser } from "../../redux/actions/userActions";
 
 // Icons
 import LocationOn from "@material-ui/icons/LocationOn";
