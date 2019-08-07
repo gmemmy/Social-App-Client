@@ -14,8 +14,7 @@ export class LikeButton extends Component {
   // Checks if a user has liked a post
   alreadyLikedPost = () => {
     const {
-      user: { likes },
-      post
+      user: { likes }
     } = this.props;
     if (likes && likes.find(like => like.postId === this.props.postId)) {
       return true;

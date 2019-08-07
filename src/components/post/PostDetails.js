@@ -5,6 +5,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import CustomButton from "../../util/customButton";
 import dayjs from "dayjs";
 import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
@@ -27,6 +28,11 @@ const styles = {
     border: "none",
     margin: 4
   },
+  visibleSeparator: {
+    width: '100%',
+    borderBottom: '1px solid rgba(0,0,0,0.1)',
+    marginBottom: 20 
+  },
   userImage: {
     maxWidth: 180,
     height: 180,
@@ -42,7 +48,7 @@ const styles = {
   },
   closeButton: {
     position: "absolute",
-    top: "6%",
+    top: "1%",
     left: "91%"
   },
   spinnerDiv: {
@@ -77,7 +83,8 @@ export class PostDetails extends Component {
         likeCount,
         commentCount,
         userImage,
-        username
+        username,
+        comments
       },
       UI: { loading }
     } = this.props;
@@ -87,7 +94,7 @@ export class PostDetails extends Component {
         <CircularProgress size={100} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={10}>
+      <Grid container spacing={12}>
         <Grid item sm={5}>
           <img src={userImage} alt="Profile" className={classes.userImage} />
         </Grid>
@@ -119,6 +126,8 @@ export class PostDetails extends Component {
               : `${commentCount} comments`}{" "}
           </span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <Comments comments={comments}/>
       </Grid>
     );
     return (

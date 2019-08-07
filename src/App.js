@@ -22,7 +22,7 @@ import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
 
-const theme = createMuiTheme(themeFile);
+export const theme = createMuiTheme(themeFile);
 
 const token = localStorage.FBIdToken;
 if (token) {
