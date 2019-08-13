@@ -6,6 +6,7 @@ import CustomButton from "../../util/customButton";
 import dayjs from "dayjs";
 import LikeButton from "./LikeButton";
 import Comments from "./Comments";
+import CommentForm from './CommentForm';
 
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
@@ -21,7 +22,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 // Redux Stuff
 import { connect } from "react-redux";
-import { singlePost } from "../../redux/actions/dataActions";
+import { singlePost, clearErrors } from "../../redux/actions/dataActions";
 
 const styles = {
   invisibleSeparator: {
@@ -72,6 +73,7 @@ export class PostDetails extends Component {
     this.setState({
       open: false
     });
+    this.props.clearErrors();
   };
   render() {
     const {
@@ -127,6 +129,7 @@ export class PostDetails extends Component {
           </span>
         </Grid>
         <hr className={classes.visibleSeparator} />
+        <CommentForm postId={postId} />
         <Comments comments={comments}/>
       </Grid>
     );
@@ -162,6 +165,7 @@ export class PostDetails extends Component {
 }
 
 PostDetails.propTypes = {
+  clearErrors: PropTypes.func.isRequired,
   singlePost: PropTypes.func.isRequired,
   postId: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
@@ -175,7 +179,7 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  singlePost
+  singlePost, clearErrors
 };
 
 export default connect(

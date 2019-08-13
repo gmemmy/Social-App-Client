@@ -8,6 +8,7 @@ import {
   DELETE_POST,
   LOADING_UI,
   ADD_POST,
+  SUBMIT_COMMENT,
   SET_ERRORS,
   CLEAR_ERRORS,
   STOP_LOADING_UI
@@ -58,9 +59,7 @@ export const addPost = newPost => dispatch => {
         type: ADD_POST,
         payload: res.data
       });
-      dispatch({
-        type: CLEAR_ERRORS
-      });
+      dispatch(clearErrors());
     })
     .catch(err => {
       dispatch({
@@ -114,6 +113,24 @@ export const deletePost = postId => dispatch => {
       console.error(err);
     });
 };
+
+export const createAComment = (postId, commentData) =>  dispatch => {
+  axios.post(`/post/${postId}/comment`, commentData)
+  .then(res => {
+    dispatch({
+      type: SUBMIT_COMMENT,
+      payload: res.data
+    });
+    dispatch(clearErrors());
+  })
+  .catch(err => {
+    dispatch({
+      type: SET_ERRORS,
+      payload: err.response.data
+    })
+    console.error(err);
+  })
+}
 
 export const clearErrors = () => dispatch => {
   dispatch({ type: CLEAR_ERRORS });
