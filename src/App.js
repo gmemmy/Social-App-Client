@@ -15,7 +15,7 @@ import { logoutUser, getUserData } from "./redux/actions/userActions";
 
 // Components
 import Navbar from "./components/layout/Navbar";
-import AuthRoute from "./util/AuthRoute";
+import AuthRoute from "./util/AuthRoute"; 
 
 // Pages
 import home from "./pages/home";
@@ -51,6 +51,7 @@ class App extends Component {
                 <AuthRoute exact path="/login" component={login} />
                 <AuthRoute exact path="/signup" component={signup} />
                 <Route exact path="/users/:username" component={user} />
+                <Route exact path="/users/:username/post/:postId" component={user} />
               </Switch>
             </div>
           </Router>

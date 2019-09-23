@@ -61,17 +61,34 @@ const styles = {
 
 export class PostDetails extends Component {
   state = {
-    open: false
+    open: false,
+    oldPath: '',
+    newPath: ''
   };
+  componentDidMount() {
+    if(this.props.openDialog)
+    this.handleOpen();
+  }
   handleOpen = () => {
+    let oldPath = window.location.pathname;
+    const { username, postId } = this.props;
+    const newPath = `/users/${username}/post/${postId}`;
+
+    if (oldPath === newPath) oldPath = `/users/${username}`;
+
+    window.history.pushState(null, null, newPath);
+
     this.setState({
-      open: true
+      open: true,
+      oldPath,
+      newPath
     });
     this.props.singlePost(this.props.postId);
   };
   handleClose = () => {
+    window.history.pushState(null, null, this.state.oldPath);
     this.setState({
-      open: false
+      open: false,
     });
     this.props.clearErrors();
   };
