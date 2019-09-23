@@ -22,6 +22,7 @@ This app is live on - https://social-app-d3eeb.firebaseapp.com
 * [React](https://redux.js.org/) The project uses Redux for state management.
 * [Redux](https://reactjs.org/) The project uses the React library.
 * [Material-UI](https://material-ui.com) The project uses Material UI as a CSS library.
+* [Firebase](https://firebase.google.com/) The project uses firebase for deployment and hosting.
 
 ### Author:
 #### Atawodi Emmanuel
