@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import withStyles from "@material-ui/core/styles/withStyles";
 import EditProfileDetails from "./EditProfileDetails";
 import CustomButton from "../../util/customButton";
+import ProfileSkeleton from '../../util/ProfileSkeleton';
 
 // MUI Stuff
 import Typography from "@material-ui/core/Typography";
@@ -50,7 +51,7 @@ const styles = theme => ({
       verticalAlign: "middle",
       "& span, svg": {
         textAlign: "center",
-        verticalAlign: "midddle"
+        verticalAlign: "middle"
       },
       "& a": {
         color: theme.palette.primary.main
@@ -183,7 +184,7 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>loading...</p>
+      <ProfileSkeleton />
     );
     return profileMarkup;
   }
