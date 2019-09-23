@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import Post from "../components/post/Post";
 import Profile from "../components/profile/Profile";
+import PostSkeleton from '../util/PostSkeleton';
 
 // Redux Stuff
 import { connect } from "react-redux";
@@ -18,7 +19,7 @@ class home extends Component {
     let recentPostsMarkup = !loading ? (
       posts.map(post => <Post post={post} key={post.postId} />)
     ) : (
-      <p>Loading...</p>
+      <PostSkeleton />
     );
     return (
       <Grid container spacing={10}>
