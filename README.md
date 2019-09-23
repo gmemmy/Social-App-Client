@@ -1,19 +1,27 @@
-This is a Twitter like React/Redux based application.
+### Social App
+This is a Twitter like React/Redux based application. 
+This app is live on - https://social-app-d3eeb.firebaseapp.com
 
-## Features
-1. Users can signup/login.
-2. Users can create posts.
-3. Users can upload profile images and modify their profile as they deem fit.
-4. Users can like and unlike post(including theirs).
-5. User can make comments on posts.
-6. Users can delete their posts and comments.
-7. Users can view the profile of other users.
+### Features
+* Users can signup/login.
+* Users can create posts.
+* Users can upload profile images and modify their profile as they deem fit.
+* Users can like and unlike post(including theirs).
+* User can make comments on posts.
+* Users can delete their posts and comments.
+* Users can view the profile of other users.
 
-## How To Get Started
-1. Clone the repo unto your local machine.
-2. cd into the `src` directory
-3. Run `npm install` to install all necessary dependencies.
-4. Run `npm start`.
+### How To Get Started
+* Clone the repo unto your local machine.
+* cd into the `src` directory
+* Run `npm install` to install all necessary dependencies.
+* Run `npm start`.
 
-## Author:
-Atawodi Emmanuel
+### Technologies
+* [Es6+ Javascript](https://www.ecma-international.org/ecma-262/9.0/index.html) The project was written with ES6 syntax and above.
+* [React](https://redux.js.org/) The project uses Redux for state management.
+* [Redux](https://reactjs.org/) The project uses the React library.
+* [Material-UI](https://material-ui.com) The project uses Material UI as a CSS library.
+
+### Author:
+#### Atawodi Emmanuel
