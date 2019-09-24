@@ -19,8 +19,8 @@ This app is live on - https://social-app-d3eeb.firebaseapp.com
 
 ### Technologies
 * [Es6+ Javascript](https://www.ecma-international.org/ecma-262/9.0/index.html) The project was written with ES6 syntax and above.
-* [React](https://redux.js.org/)The project uses the React library. 
-* [Redux](https://reactjs.org/)The project uses Redux for state management.
+* [React](https://redux.js.org/) The project uses the React library. 
+* [Redux](https://reactjs.org/) The project uses Redux for state management.
 * [Material-UI](https://material-ui.com) The project uses Material UI as a CSS library.
 * [Firebase](https://firebase.google.com/) The project uses firebase for deployment and hosting.
 
